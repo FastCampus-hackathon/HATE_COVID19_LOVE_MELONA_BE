@@ -1,11 +1,14 @@
+require("dotenv").config();
 import express from "express";
 import cors from "cors";
+import logger from "morgan";
+import routes from "./routes";
+
+const VERSION = "v1";
 
 const app = express();
 
 const port = process.env.PORT || 7000;
-
-app.listen(port);
 
 const whiteList = ["http://localhost:3000"];
 
@@ -21,9 +24,12 @@ const options = {
 };
 
 app.use(cors(options));
+app.use(logger("tiny"));
 
-app.get("/", (req, res) => {
-	res.send("hello nodee");
+routes.forEach((route) => {
+	app.get(`/${VERSION}${route.path}`, route.callback);
 });
+
+app.listen(port);
 
 console.log(`🚀 server running at http ${port}`);
