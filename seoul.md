@@ -1,10 +1,10 @@
 # 서울특별시 코로나19 자치구별 확진자 발생동향
 
-## - 유형 : REST
+- 유형 : REST
 
-## - 포맷 : JSON
+- 포맷 : JSON
 
-## - 트래픽 : 1000
+- 트래픽 : 1000
 
 ---
 
@@ -18,8 +18,6 @@
 |START_INDEX | INTEGER(필수) | 요청시작위치 | 정수 입력 (페이징 시작번호 입니다 : 데이터 행 시작번호)
 |END_INDEX | INTEGER(필수) | 요청종료위치 | 정수 입력 (페이징 끝번호 입니다 : 데이터 행 끝번호)
 |JCG_DT | STRING(선택) | 자치구 기준일  |
-
----
 
 ## Response Element
 
@@ -87,7 +85,7 @@
 
 ## Example
 
-```json
+```js
 {
   TbCorona19CountStatusJCG: {
     list_total_count: 1,
