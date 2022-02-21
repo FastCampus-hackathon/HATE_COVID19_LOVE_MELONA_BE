@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const hospital = async () => {
-    const BASE_URL = `http://apis.data.go.kr/B551182/rprtHospService/getRprtHospService?serviceKey=${process.env.OPEN_KEY}&pageNo=1&numOfRows=10000`;
+const time = async () => {
+    const BASE_URL = `http://apis.data.go.kr/B551182/rprtClicHospService/getRprtClicHospService?serviceKey=${process.env.OPEN_KEY}&pageNo=1&numOfRows=10000`;
 
     const res = await axios(BASE_URL);
 
@@ -13,4 +13,4 @@ const hospital = async () => {
     };
 };
 
-export default hospital;
+export default time;

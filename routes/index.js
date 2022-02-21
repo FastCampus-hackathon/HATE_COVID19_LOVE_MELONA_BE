@@ -1,4 +1,4 @@
-import count from "./count";
-import hospital from "./hospital";
+import hospital from "./list.js";
+import create from "./create.js";
 
-export default [count, hospital];
+export default [hospital, create];
