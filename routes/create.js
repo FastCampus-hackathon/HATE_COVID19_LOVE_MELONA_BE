@@ -1,5 +1,6 @@
 import api from "../api/hospital.js";
 import fs from "fs";
+import time from "../api/time.js";
 
 const PATH = "json/hospital.json";
 
@@ -15,7 +16,8 @@ const create = async (req, res) => {
     const now = new Date();
     const utcNow = now.getTime();
     const { items } = await api();
-
+    // const tt = await time();
+    // console.log(tt);
     if (items) {
         const sorted = items.item.filter((d) => d.sidoCdNm === "서울");
         const inputObj = {
@@ -29,7 +31,7 @@ const create = async (req, res) => {
             }
         });
     }
-
+    // res.json(tt);
     res.json({ status: "success" });
 };
 
