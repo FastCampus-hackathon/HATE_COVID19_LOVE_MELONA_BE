@@ -27,7 +27,7 @@ const create = async (req, res) => {
 	if (items) {
 		const getSeoul = items.item
 			.filter((d) => d.sidoCdNm === "서울")
-			.slice(0, 10);
+			.slice(0, 20);
 
 		const addSubject = await Promise.all(
 			getSeoul.map(async (data, index) => {
