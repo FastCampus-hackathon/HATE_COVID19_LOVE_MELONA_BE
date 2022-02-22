@@ -10,17 +10,17 @@ const app = express();
 
 const port = process.env.PORT || 7700;
 
-const whiteList = ["http://localhost:3000"];
+const whiteList = ["http://localhost:3300"];
 
 const options = {
-    origin: (origin, callback) => {
-        if (whiteList.indexOf(origin) > -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    optionsSuccessStatus: 200,
+	origin: (origin, callback) => {
+		if (whiteList.indexOf(origin) > -1 || !origin) {
+			callback(null, true);
+		} else {
+			callback(new Error("Not allowed by CORS"));
+		}
+	},
+	optionsSuccessStatus: 200,
 };
 
 // setInterval(() => {
@@ -32,7 +32,7 @@ app.use(cors(options));
 app.use(logger("tiny"));
 
 routes.forEach((route) => {
-    app.get(`/${VERSION}${route.path}`, route.callback);
+	app.get(`/${VERSION}${route.path}`, route.callback);
 });
 
 app.listen(port);

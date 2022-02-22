@@ -1,15 +1,16 @@
+# Team MERONA Schema
+
 | name     | type    | Desc            |
 | -------- | ------- | --------------- |
 | createAt | String! | Api Create Date |
 | length   | Number! | Data Length     |
 | data     | Array!  | Data            |
 
-
-
 | name      | type     | Desc                                    |
 | --------- | -------- | --------------------------------------- |
 | address   | String!  | 병.의원 주소                            |
 | name      | String!  | 병.의원 이름                            |
+| subject   | String!  | 진료과                                  |
 | isPcr     | Boolean! | PCR 여부                                |
 | isRat     | Boolean! | RAT 여부 (신속항원검사)                 |
 | category  | String!  | 종합병원 / 병원 / 의원                  |
@@ -23,10 +24,6 @@
 | sat       | String!  | 토요일 영업시간, '휴무' 또는 '정보없음' |
 | sun       | String!  | 일요일 영업시간, '휴무' 또는 '정보없음' |
 |           |          |                                         |
-
-
-
-
 
 ```json
 {
@@ -100,4 +97,3 @@
   ]
 }
 ```
-

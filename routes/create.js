@@ -19,15 +19,18 @@ const create = async (req, res) => {
 
 	const now = new Date();
 	const utcNow = now.getTime();
-	const { items } = await api();
+
+	const { items } = await api(1, 10000);
 
 	const idArray = JSON.parse(fs.readFileSync("json/contact.json", "utf8"));
 
 	if (items) {
-		const sorted = items.item.filter((d) => d.sidoCdNm === "서울");
+		const getSeoul = items.item
+			.filter((d) => d.sidoCdNm === "서울")
+			.slice(0, 10);
 
 		const addSubject = await Promise.all(
-			sorted.map(async (data) => {
+			getSeoul.map(async (data, index) => {
 				const {
 					items: { item },
 				} = await subject(data.ykihoEnc);
@@ -43,6 +46,7 @@ const create = async (req, res) => {
 				const editData = {
 					address: data.addr,
 					name: data.yadmNm,
+					subject: data.subject,
 					isPcr: data.pcrPsblYn === "Y" ? true : false,
 					isRat: data.ratPsblYn === "Y" ? true : false,
 					category:
@@ -57,6 +61,7 @@ const create = async (req, res) => {
 					latitude: data.YPosWgs84,
 					isContact: idArray.data.includes(data.ykihoEnc),
 				};
+
 				return Object.assign(editData, details);
 			})
 		);
