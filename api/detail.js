@@ -54,21 +54,21 @@ const detail = async (id) => {
 				}
 			}
 
-			if (item.trmtMonStart) {
+			if (item.trmtMonStart && item.trmtMonEnd) {
 				results.week = `${joinDate(item.trmtMonStart)} ~ ${joinDate(
 					item.trmtMonEnd
 				)}`;
 			} else {
 				results.week = `정보없음`;
 			}
-			if (item.trmtSatStart) {
+			if (item.trmtSatStart && item.trmtSatEnd) {
 				results.sat = `${joinDate(item.trmtSatStart)} ~ ${joinDate(
 					item.trmtSatEnd
 				)}`;
 			} else {
 				results.sat = `휴무`;
 			}
-			if (item.trmtSunStart) {
+			if (item.trmtSunStart && item.trmtSunEnd) {
 				results.sun = `${joinDate(item.trmtSunStart)} ~ ${joinDate(
 					item.trmtSunEnd
 				)}`;
