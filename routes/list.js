@@ -46,8 +46,8 @@ const list = (req, res) => {
 					}
 				}
 			}
+			return item;
 		});
-
 		res.json({ ...read, data: updateData });
 	} else {
 		res.json(read);
