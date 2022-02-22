@@ -9,13 +9,13 @@ import contact from "../api/contact.js";
 const PATH = "json/hospital.json";
 
 const create = async (req, res) => {
-	fs.stat(PATH, (err, stats) => {
-		if (err) {
-			console.log("here");
-			return console.error(err);
-		}
-		fs.unlinkSync(PATH);
-	});
+	// fs.stat(PATH, (err, stats) => {
+	// 	if (err) {
+	// 		console.log("here");
+	// 		return console.error(err);
+	// 	}
+	// 	fs.unlinkSync(PATH);
+	// });
 
 	const now = new Date();
 	const utcNow = now.getTime();
@@ -59,8 +59,8 @@ const create = async (req, res) => {
 								: "의원",
 						isClinic: data.rprtWorpClicFndtTgtYn === "Y" ? true : false,
 						tel: data.telno,
-						longitude: data.XPosWgs84,
-						latitude: data.YPosWgs84,
+						longitude: parseFloat(data.XPosWgs84),
+						latitude: parseFloat(data.YPosWgs84),
 						isContact: idArray.data.includes(data.ykihoEnc),
 					};
 
@@ -77,11 +77,11 @@ const create = async (req, res) => {
 			length: results.length,
 			data: results,
 		};
-		fs.appendFile(PATH, JSON.stringify(inputObj), (err) => {
-			if (err) {
-				console.log(err);
-			}
-		});
+		// fs.appendFile(PATH, JSON.stringify(inputObj), (err) => {
+		// 	if (err) {
+		// 		console.log(err);
+		// 	}
+		// });
 	}
 	res.json({ status: "success" });
 };
