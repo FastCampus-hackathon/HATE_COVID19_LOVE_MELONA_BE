@@ -1,4 +1,4 @@
-# Team MERONA Schema
+# HATE_COVID19_LOVE_MELONA API SERVER
 
 ![merona](https://user-images.githubusercontent.com/94885534/155251519-14480c93-5c00-42a5-ae3e-4ea74914831c.png)
 
