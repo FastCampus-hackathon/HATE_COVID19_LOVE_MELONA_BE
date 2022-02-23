@@ -1,3 +1,5 @@
+
+
 # Team MERONA Schema
 
 | name     | type    | Desc            |
@@ -97,3 +99,17 @@
   ]
 }
 ```
+
+
+
+Request : search/:latitude/:longitude
+
+현재 위치의 좌표를 요청값으로 보내서 가장 가까운 병원 순으로 응답 받음.
+
+| name     | type    | Desc              |
+| -------- | ------- | ----------------- |
+| name     | String! | 병.의원 이름      |
+| subject  | String! | 소아청소년과      |
+| address  | String! | 주소              |
+| distance | String! | 거리, 문자열 변환 |
+

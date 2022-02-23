@@ -10,7 +10,10 @@ const app = express();
 
 const port = process.env.PORT || 7700;
 
-const whiteList = ["http://localhost:3300"];
+const whiteList = [
+	"http://localhost:3300",
+	"https://dreamy-murdock-5f5c4c.netlify.app",
+];
 
 const options = {
 	origin: (origin, callback) => {
